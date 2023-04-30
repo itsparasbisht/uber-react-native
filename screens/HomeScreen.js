@@ -36,7 +36,7 @@ const HomeScreen = () => {
         minLength={2}
         enablePoweredByContainer={false}
         fetchDetails={true}
-        onPress={(data, details) => {
+        onPress={(data, details = null) => {
           dispatch(
             setOrigin({
               location: details.geometry.location,

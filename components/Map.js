@@ -4,7 +4,6 @@ import MapView, { Marker } from "react-native-maps";
 import tw from "twrnc";
 import { useSelector } from "react-redux";
 import { selectOrigin } from "../slices/navSlice";
-import { MapMarker } from "react-native-maps/lib/MapMarker";
 
 const Map = () => {
   const origin = useSelector(selectOrigin);

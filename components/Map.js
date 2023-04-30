@@ -16,14 +16,18 @@ const Map = () => {
   useEffect(() => {
     if (!origin || !destination) return;
 
-    mapRef.current.fitToSuppliedMarkers(["origin", "destination"], {
-      edgePadding: {
-        top: 50,
-        right: 50,
-        bottom: 50,
-        left: 50,
-      },
-    });
+    let fitMarkersInterval = setInterval(() => {
+      mapRef?.current?.fitToSuppliedMarkers(["origin", "destination"], {
+        edgePadding: {
+          top: 100,
+          right: 100,
+          left: 100,
+          bottom: 100,
+          aimated: true,
+        },
+      });
+      clearInterval(fitMarkersInterval);
+    }, 50);
   }, [origin, destination]);
 
   return (
@@ -40,8 +44,14 @@ const Map = () => {
     >
       {origin && destination && (
         <MapViewDirections
-          origin={origin.description}
-          destination={destination.description}
+          origin={{
+            latitude: origin.location.lat,
+            longitude: origin.location.lng,
+          }}
+          destination={{
+            latitude: destination.location.lat,
+            longitude: destination.location.lng,
+          }}
           apikey={GOOGLE_MAPS_APIKEY}
           strokeWidth={3}
           strokeColor={"black"}

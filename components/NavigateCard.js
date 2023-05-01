@@ -2,13 +2,15 @@ import { View, Text, SafeAreaView } from "react-native";
 import React from "react";
 import tw from "twrnc";
 import { GooglePlacesAutocomplete } from "react-native-google-places-autocomplete";
-import { GOOGLE_MAPS_APIKEY } from "@env";
 import { setDestination } from "../slices/navSlice";
 import { useDispatch } from "react-redux";
 import { useNavigation } from "@react-navigation/native";
 import NavFavourites from "./NavFavourites";
 import { TouchableOpacity } from "react-native";
 import { Icon } from "@rneui/themed";
+import Constants from "expo-constants";
+
+const GOOGLE_MAPS_APIKEY = Constants?.expoConfig?.extra?.googleMapApiKey;
 
 const NavigateCard = () => {
   const dispatch = useDispatch();

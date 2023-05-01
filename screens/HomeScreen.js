@@ -2,11 +2,13 @@ import React from "react";
 import { Image, Text, View } from "react-native";
 import tw from "twrnc";
 import NavOptions from "../components/NavOptions";
-import { GOOGLE_MAPS_APIKEY } from "@env";
 import { GooglePlacesAutocomplete } from "react-native-google-places-autocomplete";
 import { useDispatch } from "react-redux";
 import { setDestination, setOrigin } from "../slices/navSlice";
 import NavFavourites from "../components/NavFavourites";
+import Constants from "expo-constants";
+
+const GOOGLE_MAPS_APIKEY = Constants?.expoConfig?.extra?.googleMapApiKey;
 
 const HomeScreen = () => {
   const dispatch = useDispatch();

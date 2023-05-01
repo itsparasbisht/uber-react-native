@@ -8,9 +8,11 @@ import {
   setTravelTimeInformation,
 } from "../slices/navSlice";
 import MapViewDirections from "react-native-maps-directions";
-import { GOOGLE_MAPS_APIKEY } from "@env";
 import { useRef } from "react";
 import { useEffect } from "react";
+import Constants from "expo-constants";
+
+const GOOGLE_MAPS_APIKEY = Constants?.expoConfig?.extra?.googleMapApiKey;
 
 const Map = () => {
   const origin = useSelector(selectOrigin);

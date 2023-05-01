@@ -1,6 +1,6 @@
 {
   "expo": {
-    "name": "uber-react-native",
+    "name": "Uber RN",
     "slug": "uber-react-native",
     "version": "1.0.0",
     "orientation": "portrait",
@@ -8,12 +8,10 @@
     "userInterfaceStyle": "light",
     "splash": {
       "image": "./assets/splash.png",
-      "resizeMode": "contain",
+      "resizeMode": "cover",
       "backgroundColor": "#ffffff"
     },
-    "assetBundlePatterns": [
-      "**/*"
-    ],
+    "assetBundlePatterns": ["**/*"],
     "ios": {
       "supportsTablet": true
     },

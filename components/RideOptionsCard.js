@@ -32,6 +32,8 @@ const data = [
   },
 ];
 
+const SURGE_CHARGE_PRICE = 3;
+
 const RideOptionsCard = () => {
   const [selected, setSelected] = useState(null);
   const navigation = useNavigation();
@@ -80,7 +82,17 @@ const RideOptionsCard = () => {
               <Text style={tw`text-lg font-semibold`}>{title}</Text>
               <Text> {travelTimeInformation?.duration?.text} Travel Time</Text>
             </View>
-            <Text style={tw`text-lg`}>$99</Text>
+            <Text style={tw`text-lg`}>
+              {new Intl.NumberFormat("en", {
+                style: "currency",
+                currency: "INR",
+              }).format(
+                (travelTimeInformation?.duration?.value *
+                  SURGE_CHARGE_PRICE *
+                  multiplier) /
+                  100
+              )}
+            </Text>
           </TouchableOpacity>
         )}
       />
